@@ -1,0 +1,30 @@
+version: "3.2"
+services:
+    nominatim:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        ports:
+            - 7070:8080
+            - 6432:5432
+        environment:
+            POSTGRES_DB: pgsnapshot
+        volumes:
+            - /home/xfloooo/nominatimdata:/data
+            - /home/xfloooo/nominatimdata/postgresdata:/var/lib/postgresql/9.5/main
+#            - ./:/app/src
+        networks:
+            new:
+                aliases:
+                    - db
+        command: /app/start.sh
+
+    adminer:
+        image: adminer
+        ports:
+            - 8081:8080
+        networks:
+            - new
+
+networks:
+    new:

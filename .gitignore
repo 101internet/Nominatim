@@ -1,6 +1,6 @@
 *.log
 *.pyc
-
+.idea
 build
 settings/local.php
 

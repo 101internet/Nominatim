@@ -102,6 +102,7 @@ set(WEBSITESCRIPTS
     website/reverse.php
     website/search.php
     website/status.php
+    website/streets.php
 )
 
 set(CUSTOMSCRIPTS
