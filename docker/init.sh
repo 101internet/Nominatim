@@ -5,7 +5,7 @@ PGDIR=$1
 THREADS=$2
 
 
-mkdir -p /data/$PGDIR && \
+mkdir -p /data && \
 chown postgres:postgres /data/$PGDIR && \
 sudo -u postgres wget -P /data http://download.geofabrik.de/asia/india-latest.osm.pbf && \
 export  PGDATA=/data/$PGDIR  && \
