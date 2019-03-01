@@ -5,9 +5,10 @@ PGDIR=$1
 THREADS=$2
 
 
-mkdir -p /data && \
+mkdir -p /data/$PGDIR && \
 chown postgres:postgres /data/$PGDIR && \
-sudo -u postgres wget -P /data http://download.geofabrik.de/asia/india-latest.osm.pbf && \
+wget -P /data http://download.geofabrik.de/asia/india-latest.osm.pbf && \
+chmod 777 $OSMFILE && \
 export  PGDATA=/data/$PGDIR  && \
 sudo -u postgres /usr/lib/postgresql/9.5/bin/initdb -D /data/$PGDIR && \
 sudo -u postgres /usr/lib/postgresql/9.5/bin/pg_ctl -D /data/$PGDIR start && \
