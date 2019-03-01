@@ -55,6 +55,6 @@ COPY docker/entry.sh /app/entry.sh
 
 RUN chmod +x /app/entry.sh
 
-CMD ["/app/entry.sh"]
+#CMD ["/app/entry.sh"]
 
 

@@ -1,13 +1,13 @@
 #!/bin/bash
 
-OSMFILE=$1
-PGDIR=$2
-THREADS=$3
+OSMFILE=/data/india-latest.osm.pbf
+PGDIR=$1
+THREADS=$2
+
 
 mkdir -p /data/$PGDIR && \
-
 chown postgres:postgres /data/$PGDIR && \
-
+sudo -u postgres wget -P /data http://download.geofabrik.de/asia/india-latest.osm.pbf && \
 export  PGDATA=/data/$PGDIR  && \
 sudo -u postgres /usr/lib/postgresql/9.5/bin/initdb -D /data/$PGDIR && \
 sudo -u postgres /usr/lib/postgresql/9.5/bin/pg_ctl -D /data/$PGDIR start && \
