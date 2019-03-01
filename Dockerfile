@@ -53,7 +53,7 @@ COPY docker/startpostgres.sh /app/startpostgres.sh
 COPY docker/init.sh /app/init.sh
 COPY docker/entry.sh /app/entry.sh
 
-RUN chmod +x /app/entry.sh
+RUN chmod +x /app/entry.sh && chmod +x /app/start.sh && chmod +x /app/init.sh && chmod +x /app/startapache.sh && chmod +x /app/startpostgres.sh
 
 #CMD ["/app/entry.sh"]
 
